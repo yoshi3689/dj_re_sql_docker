@@ -1,0 +1,36 @@
+# django
+*.pyc
+*.pyo
+*.mo
+*.db
+*.css.map
+*.egg-info
+*.sql.gz
+.cache
+.project
+.idea
+.pydevproject
+.idea/workspace.xml
+.DS_Store
+.git/
+.sass-cache
+.vagrant/
+__pycache__
+dist
+docs
+env
+logs
+src/{{ project_name }}/settings/local.py
+src/node_modules
+web/media
+web/static/CACHE
+stats
+Dockerfile
+
+# react app
+*/node_modules/
+*/build/
+*/.git/
+.gitignore
+Dockerfile
+.editorconfig
