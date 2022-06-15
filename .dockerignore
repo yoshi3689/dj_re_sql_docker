@@ -25,12 +25,10 @@ src/node_modules
 web/media
 web/static/CACHE
 stats
-Dockerfile
 
 # react app
 */node_modules/
 */build/
 */.git/
 .gitignore
-Dockerfile
 .editorconfig

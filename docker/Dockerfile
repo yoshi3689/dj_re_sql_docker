@@ -1,0 +1,9 @@
+FROM docker/compose 
+
+WORKDIR /opt 
+
+COPY docker-compose.yml . 
+
+WORKDIR /app 
+
+CMD docker-compose -f /opt/docker-compose.yml -d up
