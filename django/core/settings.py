@@ -4,24 +4,14 @@ import environ
 env = environ.Env()
 environ.Env.read_env()
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+SECRET_KEY=env('DJANGO_SECRET_KEY')
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
+DEBUG = env('DJANGO_DEBUG')
 
-# SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY=env('DJANGO_SECRET_KEY')
-SECRET_KEY='o$&u%nbd)@uta53xz=zl1(3icpuhun2%pz(17^6lbgf(g%qa#f'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+# will add a domain name here
 ALLOWED_HOSTS = []
-
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -68,30 +58,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# local postgres
-# for some reason, database password authentication
-# error while the password is correct
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': env('DJANGO_DB_NAME'),
-#         'USER': env('DJANGO_DB_USER'),
-#         'PASSWORD': env('DJANGO_DB_PASSWORD'),
-#         'HOST': env('DJANGO_DB_HOST'),
-#         'PORT': env('DJANGO_DB_PORT'),
-#     }
-# }
 
 # cloud sql
 # DATABASES = {
@@ -105,6 +71,9 @@ WSGI_APPLICATION = 'core.wsgi.application'
 #     }
 # }
 
+# local postgres
+# for some reason, database password authentication
+# error while the password is correct
 # cloud postgres
 DATABASES = {
     'default': {
@@ -116,8 +85,6 @@ DATABASES = {
         'PORT': env('DJANGO_DB_PORT'),
     }
 }
-# Password validation
-# https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -134,10 +101,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/3.1/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -147,10 +110,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
 
