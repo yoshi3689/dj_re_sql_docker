@@ -79,9 +79,12 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # }
 
 # local postgres
+# for some reason, database password authentication
+# error while the password is correct
+
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'ENGINE': 'django.db.backends.postgresql',
 #         'NAME': env('DJANGO_DB_NAME'),
 #         'USER': env('DJANGO_DB_USER'),
 #         'PASSWORD': env('DJANGO_DB_PASSWORD'),
@@ -106,14 +109,13 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test_db',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': '34.69.209.70',
-        'PORT': '5432',
+        'NAME': env('DJANGO_DB_NAME'),
+        'USER': env('DJANGO_DB_USER'),
+        'PASSWORD': env('DJANGO_DB_PASSWORD'),
+        'HOST': env('DJANGO_DB_HOST'),
+        'PORT': env('DJANGO_DB_PORT'),
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -159,13 +161,9 @@ REST_FRAMEWORK = {
     ]
 }
 
-# CORS_ALLOWED_ORIGINS = [
-#     env('DJANGO_ALLOWED_HOST1'),
-#     env('DJANGO_ALLOWED_HOST2'),
-#     env('DJANGO_ALLOWED_HOST3')
-# ]
 CORS_ALLOWED_ORIGINS = [
-    'http://127.0.0.1:3000',
-    'http://127.0.0.1',
-    'http://localhost:3000'
+    env('DJANGO_ALLOWED_HOST1'),
+    env('DJANGO_ALLOWED_HOST2'),
+    env('DJANGO_ALLOWED_HOST3'),
+    env('DJANGO_ALLOWED_HOST4'),
 ]
